@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General News - ศูนย์รวมข่าวสารทั่วไป</title>
+    <!-- Font Awesome สำหรับไอคอนสวยๆ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+    <!-- Header & Navigation -->
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <i class="fa-solid fa-newspaper logo-icon"></i>
+                <h1>GENERAL <span>NEWS</span></h1>
+            </div>
+            
+            <div class="header-actions">
+                <!-- ปุ่มสลับ Dark / Light Mode -->
+                <button id="themeToggle" class="theme-btn" title="สลับธีม">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav class="cat-nav">
+            <button class="nav-btn active" onclick="filterCategory('all')"><i class="fa-solid fa-globe"></i> ทั้งหมด</button>
+            <button class="nav-btn" onclick="filterCategory('politics')"><i class="fa-solid fa-landmark"></i> การเมือง</button>
+            <button class="nav-btn" onclick="filterCategory('tech')"><i class="fa-solid fa-microchip"></i> เทคโนโลยี</button>
+            <button class="nav-btn" onclick="filterCategory('sports')"><i class="fa-solid fa-trophy"></i> กีฬา</button>
+            <button class="nav-btn" onclick="filterCategory('entertainment')"><i class="fa-solid fa-film"></i> บันเทิง</button>
+        </nav>
+    </header>
+
+    <div class="main-layout">
+        
+        <!-- SECTION 1: ข่าวเด่น Breaking News (Hero Banner) -->
+        <section class="hero-section" id="heroSection">
+            <!-- JavaScript จะเรนเดอร์ข่าวเด่นมาใส่ที่นี่ -->
+        </section>
+
+        <!-- SECTION 2: Layout แบ่ง 2 ฝั่ง (ฟอร์มแชร์ข่าว & Feed ข่าวสาร) -->
+        <div class="content-grid">
+            
+            <!-- ฝั่งซ้าย: ฟอร์มแชร์ข่าว -->
+            <aside class="sidebar">
+                <div class="card form-card">
+                    <h2><i class="fa-solid fa-pen-to-square"></i> แชร์ข่าวสารของคุณ</h2>
+                    <p class="subtitle">ร่วมเป็นส่วนหนึ่งในการอัปเดตเรื่องราวรอบตัว</p>
+
+                    <form id="newsForm">
+                        <div class="input-group">
+                            <label>หัวข้อข่าว</label>
+                            <input type="text" id="newsTitle" placeholder="เช่น เทคโนโลยีใหม่เปลี่ยนโลก..." required>
+                        </div>
+
+                        <div class="input-group">
+                            <label>หมวดหมู่ข่าว</label>
+                            <select id="newsCategory" required>
+                                <option value="">-- เลือกหมวดหมู่ --</option>
+                                <option value="politics">การเมือง</option>
+                                <option value="tech">เทคโนโลยี</option>
+                                <option value="sports">กีฬา</option>
+                                <option value="entertainment">บันเทิง</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>ลิงก์รูปภาพประกอบ (URL)</label>
+                            <input type="url" id="newsImage" placeholder="https://example.com/image.jpg">
+                        </div>
+
+                        <div class="input-group">
+                            <label>รายละเอียดข่าวสาร</label>
+                            <textarea id="newsContent" rows="4" placeholder="พิมพ์เนื้อหาข่าวอย่างละเอียดที่นี่..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <i class="fa-solid fa-paper-plane"></i> โพสต์ข่าวสาร
+                        </button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- ฝั่งขวา: รายการข่าวทั้งหมด -->
+            <main class="feed-section">
+                <div class="feed-header">
+                    <h2><i class="fa-solid fa-fire"></i> ข่าวสารล่าสุด</h2>
+                    <span id="newsCount" class="count-badge">0 ข่าว</span>
+                </div>
+
+                <div id="newsFeed" class="feed-grid">
+                    <!-- รายการข่าวจะแสดงตรงนี้ -->
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
